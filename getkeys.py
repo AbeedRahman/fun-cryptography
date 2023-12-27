@@ -15,8 +15,27 @@ def is_prime(num):
     return True
 
 
+def gcd(a, b):
+    if a==0 or b==0:
+        return 0
+    if a==b:
+        return a
+    if a<b:
+        return gcd(a, b-a)
+    return gcd(a-b, b)
+
+
+def coprime(a, b):
+    return gcd(a,b) == 1
+
+
+def fi_N(p, q):
+    return (p-1) * (q-1)
+
+
 def print_line():
     print("-" * 11)
+
 
 print_line()
 p = int(input("Enter a five digit prime number: "))
@@ -30,12 +49,6 @@ q = int(input("Enter another five digit prime number: "))
 while not is_prime(q):
     q = int(input("Not a prime number. Please enter again: "))
 
-
 n = p * q
 print("N = ", n)
-
-
-def fi_N(p, q):
-    return (p-1) * (q-1)
-
 
