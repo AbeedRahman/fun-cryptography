@@ -4,3 +4,8 @@ __pycache__/
 # Environments
 .venv
 venv/
+
+# Custom
+test*.py
+*-privatekey
+*-publickey
