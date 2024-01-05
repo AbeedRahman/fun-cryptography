@@ -1,5 +1,5 @@
 """Encrypts a sentance using a key pair.
-Usage: python encrypt.py <public_keyfile> <message>
+Usage: python encrypt.py <private_keyfile> <message>
 """
 
 __author__ = 'Misnad'
@@ -42,12 +42,10 @@ def to_word(num):
 
 with open(sys.argv[1], 'r') as keyfile:
     # TODO catch invalid key file
-    e = int(keyfile.readline())
+    d = int(keyfile.readline())
     n = int(keyfile.readline())
 
-message = sys.argv[2]
+cyper = int(sys.argv[2])
 
-# print(to_num(message))
-
-cypher = (to_num(message) ** e) % n
-print("Your cypher message is:", cypher)
+message = to_word(((cyper) ** d) % n)
+print("Your message is:", message)
